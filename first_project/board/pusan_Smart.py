@@ -7,8 +7,7 @@ def extract_smarts():
     options = webdriver.ChromeOptions()
     options.headless = True
 
-    browser = webdriver.Chrome(
-        r"C:\Users\jyy02\OneDrive\Desktop\project\First_Project\first_project\chromedriver", options=options)
+    browser = webdriver.Chrome("chromedriver", options=options)
     browser.get(url)
 
     soup = BeautifulSoup(browser.page_source, 'html.parser')

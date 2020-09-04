@@ -36,9 +36,7 @@ def get_vid(search_word):
     options = webdriver.ChromeOptions()
     options.headless = True
     options.add_argument("window-size=1920x1080")
-
-    driver = webdriver.Chrome(
-        r"C:\Users\jyy02\OneDrive\Desktop\project\First_Project\first_project\chromedriver", options=options)
+    driver = webdriver.Chrome("chromedriver", options=options)
     URL = f"https://www.youtube.com/results?search_query={search_word}&sp=CAMSAhAB"
     driver.get(URL)
 
