@@ -2,7 +2,7 @@ from .pusan_cse import get_notices
 from .pusan_info import get_busanits
 from .pusan_jobs import get_emps
 from .pusan_Smart import get_smarts
-from .views import Board
+from .models import Board
 
 
 def scraping():

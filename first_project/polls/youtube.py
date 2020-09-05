@@ -8,7 +8,7 @@ import sys
 import csv
 
 
-def get_info(soup):
+def get_info(soup, search_word):
     rows = soup.find_all('ytd-video-renderer')
     videos = []
     for row in rows:
@@ -22,10 +22,11 @@ def get_info(soup):
             video_length = video_length.split()
             length = ""
             video_length = length.join(video_length)
-            one_video = {'title': video_title.strip(),
+            one_video = {'num': search_word,
+                         'title': video_title.strip(),
                          'views': get_views,
-                         'video length': video_length,
-                         "url": f"https://www.youtube.com/embed/"+video_url}
+                         "url": f"https://www.youtube.com/embed/"+video_url,
+                         }
             if len(video_length) == 4:
                 videos.append(one_video)
     return videos
@@ -54,7 +55,7 @@ def get_vid(search_word):
         if new_page_height == last_page_height:
             break
     soup = bs(driver.page_source, 'html.parser')
-    videos = get_info(soup)
+    videos = get_info(soup, search_word)
     driver.close()
     return videos
 
