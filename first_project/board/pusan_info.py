@@ -21,7 +21,7 @@ def extract_busanit(html):
 
 def extract_busanits():
     busanits = []
-    for page in range(2):
+    for page in range(5):
         result = requests.get(f"{URL}{page + 1}")
         soup = BeautifulSoup(result.content.decode(
             'UTF-8', 'replace'), 'html.parser')

@@ -22,7 +22,7 @@ def extract_notice(html):
 
 def extract_notices():
     notices = []
-    for page in range(2):
+    for page in range(5):
         page_alphabet = chr(69 + page*4)
         result = requests.get(f"{URL1}{page_alphabet}{URL2}")
         soup = BeautifulSoup(result.text, 'html.parser')

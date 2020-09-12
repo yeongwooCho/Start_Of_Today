@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
+import re
 
 
 def extract_smarts():
@@ -20,7 +21,8 @@ def extract_smarts():
 
         title = datas[1].a.get_text().strip()
         rate = datas[2].get_text().strip().replace('-', '.')
-        link = '#'
+        link_index = re.findall("\\d+", datas[1].a['onclick'])[0]
+        link = f"https://e-onestop.pusan.ac.kr/menu/bbs/notice/view?bbsConfNo=1&articleNo={link_index}&menuId=20001104&rMenu=12"
         smarts.append(
             {'num': '1', 'title': title, 'rate': rate, 'link': link}
         )
