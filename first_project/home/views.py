@@ -15,6 +15,6 @@ def home(request):
 
 def updates(request):
     bs()
-    # ps()
+    ps()
 
     return render(request, "updates.html")

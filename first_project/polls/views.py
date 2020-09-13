@@ -8,15 +8,15 @@ from .scraping import scraping
 
 
 def motivation(request):
-    videos = Video.objects.filter(num='공부 동기부여')
+    videos = Video.objects.filter(num='공부 동기부여').order_by('num')
     return render(request, "youtube.html", {'videos': videos})
 
 
 def career(request):
-    videos = Video.objects.filter(num='취업 팁')
+    videos = Video.objects.filter(num='취업 팁').order_by('num')
     return render(request, "youtube.html", {'videos': videos})
 
 
 def coding(request):
-    videos = Video.objects.filter(num='코딩테스트')
+    videos = Video.objects.filter(num='코딩테스트').order_by('num')
     return render(request, 'youtube.html', {'videos': videos})
