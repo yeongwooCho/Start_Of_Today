@@ -25,11 +25,14 @@ def scraping():
             if not Board.objects.filter(title=board.title):
                 board.save()
 
-    # time = datetime.now() + timedelta(days=-100))
-    # today_month=str(time).split(' ')[0]
-    # print(today_month)
-    # boards = Board.objects.all()
-    # for board in boards:
+    # Delete old data
+    time = datetime.now() + timedelta(days=-100)
+    three_month_ago = str(time).split(' ')[0].replace(
+        '-', '.')  # three_month_ago is a string
+    boards = Board.objects.all()
+    for board in boards:
+        if board.rate < three_month_ago:  # board.rate is a string
+            board.delete()
 
 
 if __name__ == '__main__':
